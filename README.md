@@ -58,6 +58,43 @@ int main(int argc, char *argv[])
 }
 ```
 
+Input:
+
+```cpp
+#include "angular_motion.h"
+
+int main(int argc, char *argv[])
+{
+    angular_motion *am=new angular_motion();
+    am->set_debug(true);
+
+    double v_max=3000;  // mm/min
+    double v_arc=1400;  // mm/min
+    double r_arc=5;     // mm
+
+    am->set_values(v_max,v_arc,r_arc);
+
+    double radius1 = 5.0;       // Radius in mm
+    double linearSpeed1 = am->calculateLinearArcSpeed(radius1);
+
+    double radius2 = 10.0;       // Radius in mm
+    double linearSpeed2 = am->calculateLinearArcSpeed(radius2);
+
+    double radius3 = 20.0;       // Radius in mm
+    double linearSpeed3 = am->calculateLinearArcSpeed(radius3);
+}
+```
+Output:
+```cpp
+Terminal output:
+Angular Speed: 4.66667 rad/s
+Angular Speed: 267.38 deg/s
+Linear Speed on the Arc with Radius :5 v:1400 mm/min
+Linear Speed on the Arc with Radius :10 v:2800 mm/min
+Linear Speed on the Arc with Radius :20 v:5600 mm/min
+
+```
+
 ## Example Usage
 
 ```cpp

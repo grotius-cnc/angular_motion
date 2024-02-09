@@ -32,7 +32,7 @@ void angular_motion::calculateAngularSpeed() {
 
     if(debug){
         std::cout << "Angular Speed: " << v_angular<< " rad/s" << std::endl;
-         std::cout << "Angular Speed: " << rad_to_deg( v_angular )<< " deg/s" << std::endl;
+        std::cout << "Angular Speed: " << rad_to_deg( v_angular )<< " deg/s" << std::endl;
     }
 }
 
@@ -63,7 +63,6 @@ double angular_motion::rad_to_deg(double radians) {
 void angular_motion::perform_unit_test(){
 
     angular_motion *am=new angular_motion();
-
     am->set_debug(true);
 
     double v_max=3000;  // mm/min

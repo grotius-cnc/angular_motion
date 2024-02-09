@@ -5,6 +5,11 @@
 #include <iomanip>
 #include <cmath>
 
+//! The `angular_motion` class is a powerful tool for determining maximum
+//! arc velocities during path planning. By configuring the
+//! maximum linear velocity (`v_max`), arc velocity (`v_arc`),
+//! and arc radius (`r_arc`), the class facilitates the optimization of arc velocities,
+//! ensuring efficient and controlled motion along curved paths.
 class angular_motion
 {
 public:
