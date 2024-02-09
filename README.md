@@ -16,26 +16,24 @@ The `angular_motion` class is a C++ implementation designed to calculate angular
 The `angular_motion` class is especially valuable for determining maximum arc velocities during path planning. 
 By configuring the maximum linear velocity (v_max), arc velocity (v_arc), and arc radius (r_arc), the class facilitates the optimization of arc velocities.
 
-### Formula
+## Calculating Angular Speed
 
-The angular speed is calculated using the formula:
+The angular speed (omega) is determined by the formula:
 
-\[ \omega = \frac{{\text{{arc velocity}}}}{{\text{{arc radius}}}} \]
+omega = arc velocity / arc radius
 
 Where:
-- \(\omega\) is the angular speed in radians per second.
-- **arc velocity** is the linear velocity along the arc (set by the user as `v_arc`).
-- **arc radius** is the radius of the circular path (set by the user as `r_arc`).
+- omega is the angular speed in radians per second.
+- arc velocity is the linear velocity along the arc.
+- arc radius is the radius of the circular path.
 
 ### Example Calculation
 
-For instance, if the arc velocity (`v_arc`) is 1400 mm/min and the arc radius (`r_arc`) is 5.0 mm, the angular speed (\(\omega\)) would be calculated as follows:
+For instance, if the arc velocity is 1400 mm/min and the arc radius is 5.0 mm, the angular speed (omega) would be calculated as:
 
-\[ \omega = \frac{{1400 \, \text{{mm/min}}}}{{5.0 \, \text{{mm}}}} \]
+omega = 1400 mm/min / 5.0 mm
 
-After calculating this expression, the resulting value represents the angular speed in radians per second.
-
-This angular speed is a critical parameter in the determination of linear speed along the arc, providing valuable insights into the rotational motion required for precise path execution.
+Then the omega is used as a constant for other arc's or circle's to calculate optimal speeds.
 
 ### Example Use Case
 
