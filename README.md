@@ -82,6 +82,12 @@ int main(int argc, char *argv[])
 
     double radius3 = 20.0;       // Radius in mm
     double linearSpeed3 = am->calculateLinearArcSpeed(radius3);
+    
+    double radius4 = 0.01;       // Radius in mm, blending G64P0.01 in LinuxCNC
+    double linearSpeed4 = am->calculateLinearArcSpeed(radius4);
+
+    double radius5 = 0.1;       // Radius in mm, blending G64P0.1 in LinuxCNC
+    double linearSpeed5 = am->calculateLinearArcSpeed(radius5);
 }
 ```
 Output:
@@ -92,6 +98,8 @@ Angular Speed: 267.38 deg/s
 Linear Speed on the Arc with Radius :5 v:1400 mm/min
 Linear Speed on the Arc with Radius :10 v:2800 mm/min
 Linear Speed on the Arc with Radius :20 v:5600 mm/min
+Linear Speed on the Arc with Radius :0.01 v:2.8 mm/min
+Linear Speed on the Arc with Radius :0.1 v:28 mm/min
 
 ```
 

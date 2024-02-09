@@ -79,4 +79,10 @@ void angular_motion::perform_unit_test(){
 
     double radius3 = 20.0;       // Radius in mm
     double linearSpeed3 = am->calculateLinearArcSpeed(radius3);
+
+    double radius4 = 0.01;       // Radius in mm, blending G64P0.01 in LinuxCNC
+    double linearSpeed4 = am->calculateLinearArcSpeed(radius4);
+
+    double radius5 = 0.1;       // Radius in mm, blending G64P0.1 in LinuxCNC
+    double linearSpeed5 = am->calculateLinearArcSpeed(radius5);
 }
