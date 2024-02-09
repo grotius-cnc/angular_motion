@@ -42,8 +42,8 @@ Consider a scenario where a CNC machine needs to follow a curved path. Leveragin
 ## Debug Mode
 
 ```cpp
-	angular_motion *am=new angular_motion();
-	am->set_debug(true);
+    angular_motion *am=new angular_motion();
+    am->set_debug(true);
 ```
 
 ## Unit Test
