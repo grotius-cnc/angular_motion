@@ -69,6 +69,16 @@ int main() {
     return 0;
 }
 ```
+## Clone & run project using cmake
+
+```
+	git clone https://github.com/grotius-cnc/angular_motion.git
+	cd linear_motion
+	mkdir build
+	cd build
+	cmake ..
+	make
+```
 
 ## Unit Test
 
