@@ -10,7 +10,6 @@ The `angular_motion` class is a C++ implementation designed to calculate angular
 4. Call the `calculateLinearArcSpeed` function to determine the linear speed on the arc based on a specified radius.
 5. Optionally, perform a unit test using the `perform_unit_test` function.
 
-
 ## Path Planning Utility
 
 The `angular_motion` class is especially valuable for determining maximum arc velocities during path planning. 
@@ -27,7 +26,7 @@ Where:
 - arc velocity is the linear velocity along the arc.
 - arc radius is the radius of the circular path.
 
-### Example Calculation
+## Example Calculation
 
 For instance, if the arc velocity is 1400 mm/min and the arc radius is 5.0 mm, the angular speed (omega) would be calculated as:
 
@@ -35,15 +34,40 @@ omega = 1400 mm/min / 5.0 mm
 
 Then the omega is used as a constant for other arc's or circle's to calculate optimal speeds.
 
-### Example Use Case
+## Example Use Case
 
-Consider a scenario where a CNC machine needs to follow a curved path. Leveraging the `angular_motion` class allows for the determination of the maximum permissible arc velocity for different radii. This ensures that the machine adheres to specified acceleration constraints, leading to precise motion control.
+Consider a scenario where a CNC machine needs to follow a curved path. Leveraging the `angular_motion` class allows for the determination of the maximum permissible arc velocity for different radius. This ensures that the machine adheres to specified acceleration constraints, leading to precise motion control.
 
 ## Debug Mode
 
 ```cpp
     angular_motion *am=new angular_motion();
     am->set_debug(true);
+```
+
+## Example Usage
+
+```cpp
+#include "angular_motion.h"
+
+int main() {
+    angular_motion motion_calculator;
+    motion_calculator.set_debug(true);
+
+    double v_max = 3000.0;  // Maximum linear velocity in mm/min
+    double v_arc = 1400.0;  // Arc velocity in mm/min
+    double r_arc = 5.0;     // Arc radius in mm
+
+    motion_calculator.set_values(v_max, v_arc, r_arc);
+
+    double radius = 5.0;  // Replace with your specific radius
+    double linear_speed_on_arc = motion_calculator.calculateLinearArcSpeed(radius);
+
+    // Output the result
+    std::cout << "Linear Speed on the Arc: " << linear_speed_on_arc << " mm/min" << std::endl;
+
+    return 0;
+}
 ```
 
 ## Unit Test
@@ -102,27 +126,3 @@ Linear Speed on the Arc with Radius :0.01 v:2.8 mm/min
 Linear Speed on the Arc with Radius :0.1 v:28 mm/min
 
 ```
-
-## Example Usage
-
-```cpp
-#include "angular_motion.h"
-
-int main() {
-    angular_motion motion_calculator;
-    motion_calculator.set_debug(true);
-
-    double v_max = 3000.0;  // Maximum linear velocity in mm/min
-    double v_arc = 1400.0;  // Arc velocity in mm/min
-    double r_arc = 5.0;     // Arc radius in mm
-
-    motion_calculator.set_values(v_max, v_arc, r_arc);
-
-    double radius = 5.0;  // Replace with your specific radius
-    double linear_speed_on_arc = motion_calculator.calculateLinearArcSpeed(radius);
-
-    // Output the result
-    std::cout << "Linear Speed on the Arc: " << linear_speed_on_arc << " mm/min" << std::endl;
-
-    return 0;
-}

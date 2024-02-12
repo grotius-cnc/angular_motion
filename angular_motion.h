@@ -1,6 +1,8 @@
 #ifndef LINEAR_CYCLE_H
 #define LINEAR_CYCLE_H
 
+#ifdef __cplusplus
+
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -40,5 +42,10 @@ private:
 
     double rad_to_deg(double radians);
 };
+
+//! Here it tells if this code is used in c, convert the class to a struct. This is handy!
+#else
+typedef struct angular_motion angular_motion
+#endif //! cplusplus
 
 #endif // LINEAR_CYCLE_H
